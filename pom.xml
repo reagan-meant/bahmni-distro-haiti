@@ -36,6 +36,7 @@
     <bahmniappsRevision>0.91.x</bahmniappsRevision>
 
     <!-- In dev -->
+    <addresshierarchyVersion>2.12.0-SNAPSHOT</addresshierarchyVersion>
     <bahmnicoreVersion>0.93-SNAPSHOT</bahmnicoreVersion>
     <bacteriologyVersion>1.2-SNAPSHOT</bacteriologyVersion>
     <initializerVersion>1.2.0-SNAPSHOT</initializerVersion>
@@ -50,7 +51,6 @@
     <appointmentsVersion>1.2-SNAPSHOT</appointmentsVersion>
 
     <!-- OpenMRS modules -->
-    <addresshierarchyVersion>2.11.0</addresshierarchyVersion>
     <appframeworkVersion>2.10.0</appframeworkVersion>
     <calculationVersion>1.2</calculationVersion>
     <emrapiVersion>1.24.5</emrapiVersion>
