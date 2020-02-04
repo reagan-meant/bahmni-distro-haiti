@@ -301,12 +301,13 @@
               <excludeTransitive>true</excludeTransitive>
               <useBaseVersion>true</useBaseVersion>
               <outputDirectory>${distro.openmrsmodulesDir}</outputDirectory>
-              <includeTypes>jar, omod</includeTypes> <!-- copying jars and omods only -->
+              <!-- copying jars and omods only -->
+              <includeTypes>jar, omod</includeTypes>
             </configuration>
           </execution>
           <!-- OpenMRS config -->
           <execution>
-            <id>copy-openmrs-config</id>
+            <id>unpack-openmrs-config-haiti</id>
             <phase>package</phase>
             <goals>
               <goal>unpack-dependencies</goal>
@@ -320,7 +321,7 @@
           </execution>
           <!-- Bahmni config -->
           <execution>
-            <id>copy-bahmni-config</id>
+            <id>unpack-bahmni-config-haiti</id>
             <phase>package</phase>
             <goals>
               <goal>unpack-dependencies</goal>
@@ -334,7 +335,7 @@
           </execution>
           <!-- Bahmni Apps -->
           <execution>
-            <id>copy-bahmniapps</id>
+            <id>unpack-bahmniapps</id>
             <phase>package</phase>
             <goals>
               <goal>unpack-dependencies</goal>
@@ -359,8 +360,8 @@
             <configuration>
               <target>
                 <move todir="${distro.openmrsmodulesDir}">
-                  <fileset dir="${distro.openmrsmodulesDir}" />
-                  <mapper type="regexp" from="^(.+)-omod-(.+)\.jar" to="\1-\2.omod" />
+                  <fileset dir="${distro.openmrsmodulesDir}"/>
+                  <mapper type="regexp" from="^(.+)-omod-(.+)\.jar" to="\1-\2.omod"/>
                 </move>
               </target>
             </configuration>
@@ -374,8 +375,8 @@
             <configuration>
               <target>
                 <move todir="${distro.openmrsconfigDir}">
-                  <fileset dir="${distro.openmrsconfigDir}" />
-                  <mapper type="regexp" from="^openmrs-config-hsc(.+)\.zip" to="config.zip" />
+                  <fileset dir="${distro.openmrsconfigDir}"/>
+                  <mapper type="regexp" from="^openmrs-config-hsc(.+)\.zip" to="config.zip"/>
                 </move>
               </target>
             </configuration>
@@ -389,8 +390,8 @@
             <configuration>
               <target>
                 <move todir="${distro.bahmniconfigDir}">
-                  <fileset dir="${distro.bahmniconfigDir}" />
-                  <mapper type="regexp" from="^bahmni-config-hsc(.+)\.zip" to="config.zip" />
+                  <fileset dir="${distro.bahmniconfigDir}"/>
+                  <mapper type="regexp" from="^bahmni-config-hsc(.+)\.zip" to="config.zip"/>
                 </move>
               </target>
             </configuration>
