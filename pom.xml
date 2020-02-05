@@ -33,7 +33,7 @@
     <bahmniconfigVersion>1.0.0-SNAPSHOT</bahmniconfigVersion>
 
     <!-- Bahmni Apps -->
-    <bahmniappsRevision>0.91.x</bahmniappsRevision>
+    <bahmniappsRevision>fd8dd7b</bahmniappsRevision>
 
     <!-- In dev -->
     <addresshierarchyVersion>2.12.0-SNAPSHOT</addresshierarchyVersion>
