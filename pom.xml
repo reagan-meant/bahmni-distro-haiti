@@ -24,6 +24,8 @@
     <distro.bahmniconfigDir>${distro.baseDir}/bahmni_config</distro.bahmniconfigDir>
     <distro.openmrscoreDir>${distro.baseDir}/openmrs_core</distro.openmrscoreDir>
     <distro.openmrsmodulesDir>${distro.baseDir}/openmrs_modules</distro.openmrsmodulesDir>
+    <distro.bahmnireportsDir>${distro.baseDir}/bahmni_reports</distro.bahmnireportsDir>
+    <distro.openerpatomfeedserviceDir>${distro.baseDir}/openerp_atomfeed_service</distro.openerpatomfeedserviceDir>
 
     <!-- Core -->
     <openMRSVersion>2.1.3</openMRSVersion>
@@ -73,9 +75,27 @@
     <webservices.restVersion>2.24.0</webservices.restVersion>
     <auditLogVersion>1.1-SNAPSHOT</auditLogVersion>
 
+    <!-- Bahmni Reports -->
+    <bahmniReportsVersion>0.92.1</bahmniReportsVersion>
+
+    <!-- OpenERP Atomfeed Service -->
+    <openErpAtomfeedServiceVersion>0.93.1</openErpAtomfeedServiceVersion>
+
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.bahmni</groupId>
+      <artifactId>reports</artifactId>
+      <type>war</type>
+      <version>${bahmniReportsVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bahmni.openerp</groupId>
+      <artifactId>openerp-atomfeed-service</artifactId>
+      <type>war</type>
+      <version>${openErpAtomfeedServiceVersion}</version>
+    </dependency>
     <dependency>
       <groupId>net.mekomsolutions</groupId>
       <artifactId>openmrs-config-haiti</artifactId>
@@ -278,7 +298,7 @@
         <executions>
           <!-- OpenMRS Core -->
           <execution>
-            <id>copy-war</id>
+            <id>copy-openmrs-war</id>
             <phase>package</phase>
             <goals>
               <goal>copy-dependencies</goal>
@@ -287,7 +307,35 @@
               <excludeTransitive>true</excludeTransitive>
               <useBaseVersion>true</useBaseVersion>
               <outputDirectory>${distro.openmrscoreDir}</outputDirectory>
-              <includeTypes>war</includeTypes>
+              <includeArtifactIds>openmrs-webapp</includeArtifactIds>
+            </configuration>
+          </execution>
+          <!-- Bahmni Reports -->
+          <execution>
+            <id>copy-bahmni-reports-war</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <excludeTransitive>true</excludeTransitive>
+              <useBaseVersion>true</useBaseVersion>
+              <outputDirectory>${distro.bahmnireportsDir}</outputDirectory>
+              <includeArtifactIds>reports</includeArtifactIds>
+            </configuration>
+          </execution>
+          <!-- OpenERP Atomfeed Service -->
+          <execution>
+            <id>copy-openerp-atomfeed-service-war</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <excludeTransitive>true</excludeTransitive>
+              <useBaseVersion>true</useBaseVersion>
+              <outputDirectory>${distro.openerpatomfeedserviceDir}</outputDirectory>
+              <includeArtifactIds>openerp-atomfeed-service</includeArtifactIds>
             </configuration>
           </execution>
           <!-- OpenMRS modules -->
