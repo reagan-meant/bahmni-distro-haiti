@@ -45,7 +45,7 @@
     <bedmanagementVersion>5.11.0-SNAPSHOT</bedmanagementVersion>
 
     <!-- Bahmni modules -->
-    <bahmniieomodVersion>0.91-SNAPSHOT</bahmniieomodVersion>
+    <bahmniieomodVersion>0.92-SNAPSHOT</bahmniieomodVersion>
     <rulesengineVersion>0.91-SNAPSHOT</rulesengineVersion>
     <idgenwebservicesVersion>1.3-SNAPSHOT</idgenwebservicesVersion>
     <episodesVersion>1.0-SNAPSHOT</episodesVersion>
