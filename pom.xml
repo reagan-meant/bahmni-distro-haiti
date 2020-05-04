@@ -3,7 +3,7 @@
   <groupId>net.mekomsolutions</groupId>
   <artifactId>bahmni-distro-haiti</artifactId>
   <name>Haiti distribution</name>
-  <version>1.0.0</version>
+  <version>1.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <developers>
@@ -31,8 +31,8 @@
     <openMRSVersion>2.1.3</openMRSVersion>
 
     <!-- Configs -->
-    <openmrsconfigVersion>1.1.0</openmrsconfigVersion>
-    <bahmniconfigVersion>1.1.0</bahmniconfigVersion>
+    <openmrsconfigVersion>1.2.0-SNAPSHOT</openmrsconfigVersion>
+    <bahmniconfigVersion>1.2.0-SNAPSHOT</bahmniconfigVersion>
 
     <!-- Bahmni Apps -->
     <bahmniappsRevision>f2dc45f</bahmniappsRevision>
