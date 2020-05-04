@@ -3,7 +3,7 @@
   <groupId>net.mekomsolutions</groupId>
   <artifactId>bahmni-distro-haiti</artifactId>
   <name>Haiti distribution</name>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
 
   <developers>
@@ -31,35 +31,36 @@
     <openMRSVersion>2.1.3</openMRSVersion>
 
     <!-- Configs -->
-    <openmrsconfigVersion>1.1.0-SNAPSHOT</openmrsconfigVersion>
-    <bahmniconfigVersion>1.1.0-SNAPSHOT</bahmniconfigVersion>
+    <openmrsconfigVersion>1.1.0</openmrsconfigVersion>
+    <bahmniconfigVersion>1.1.0</bahmniconfigVersion>
 
     <!-- Bahmni Apps -->
     <bahmniappsRevision>f2dc45f</bahmniappsRevision>
 
     <!-- In dev -->
-    <addresshierarchyVersion>2.12.0</addresshierarchyVersion>
-    <bahmnicoreVersion>0.93-SNAPSHOT</bahmnicoreVersion>
-    <bacteriologyVersion>1.2.0</bacteriologyVersion>
-    <initializerVersion>2.0.0</initializerVersion>
-    <bedmanagementVersion>5.11.0</bedmanagementVersion>
 
     <!-- Bahmni modules -->
-    <bahmniieomodVersion>1.0.0</bahmniieomodVersion>
-    <rulesengineVersion>0.91-SNAPSHOT</rulesengineVersion>
-    <idgenwebservicesVersion>1.3-SNAPSHOT</idgenwebservicesVersion>
-    <episodesVersion>1.0-SNAPSHOT</episodesVersion>
-    <atomfeedVersion>2.5.6</atomfeedVersion>
     <appointmentsVersion>1.2-SNAPSHOT</appointmentsVersion>
+    <atomfeedVersion>2.5.6</atomfeedVersion>
+    <bahmnicoreVersion>0.93-SNAPSHOT</bahmnicoreVersion>
+    <bahmniieomodVersion>1.0.0</bahmniieomodVersion>
+    <bedmanagementVersion>5.11.0</bedmanagementVersion>
+    <episodesVersion>1.0-SNAPSHOT</episodesVersion>
+    <idgenwebservicesVersion>1.3-SNAPSHOT</idgenwebservicesVersion>
+    <rulesengineVersion>0.91-SNAPSHOT</rulesengineVersion>
 
     <!-- OpenMRS modules -->
+    <addresshierarchyVersion>2.12.0</addresshierarchyVersion>
     <appframeworkVersion>2.10.0</appframeworkVersion>
+    <auditLogVersion>1.1-SNAPSHOT</auditLogVersion>
+    <bacteriologyVersion>1.2.0</bacteriologyVersion>
     <calculationVersion>1.2</calculationVersion>
     <emrapiVersion>1.24.5</emrapiVersion>
     <eventVersion>2.5</eventVersion>
     <exti18nVersion>1.0.0</exti18nVersion>
     <htmlwidgetsVersion>1.8.0</htmlwidgetsVersion>
     <idgenVersion>4.4.1</idgenVersion>
+    <initializerVersion>2.0.0</initializerVersion>
     <legacyuiVersion>1.3.3</legacyuiVersion>
     <metadatamappingVersion>1.3.1</metadatamappingVersion>
     <metadatasharingVersion>1.2.2</metadatasharingVersion>
@@ -73,7 +74,6 @@
     <uiframeworkVersion>3.8</uiframeworkVersion>
     <uilibraryVersion>2.0.5</uilibraryVersion>
     <webservices.restVersion>2.24.0</webservices.restVersion>
-    <auditLogVersion>1.1-SNAPSHOT</auditLogVersion>
 
     <!-- Bahmni Reports -->
     <bahmniReportsVersion>0.92.1</bahmniReportsVersion>
