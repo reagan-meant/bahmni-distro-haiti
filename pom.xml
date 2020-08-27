@@ -35,7 +35,7 @@
     <bahmniconfigVersion>1.2.0-SNAPSHOT</bahmniconfigVersion>
 
     <!-- Bahmni Apps -->
-    <bahmniappsRevision>14d99f9</bahmniappsRevision>
+    <bahmniappsRevision>144dfe7</bahmniappsRevision>
 
     <!-- In dev -->
 
