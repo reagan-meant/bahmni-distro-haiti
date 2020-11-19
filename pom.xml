@@ -22,6 +22,8 @@
     <distro.bahmniemrDir>${distro.baseDir}/bahmni_emr</distro.bahmniemrDir>
     <distro.openmrsconfigDir>${distro.baseDir}/openmrs_config</distro.openmrsconfigDir>
     <distro.bahmniconfigDir>${distro.baseDir}/bahmni_config</distro.bahmniconfigDir>
+    <distro.odooconfigDir>${distro.baseDir}/odoo_config</distro.odooconfigDir>
+    <distro.odooAddonsDir>${distro.baseDir}/odoo_addons</distro.odooAddonsDir>
     <distro.openmrscoreDir>${distro.baseDir}/openmrs_core</distro.openmrscoreDir>
     <distro.openmrsmodulesDir>${distro.baseDir}/openmrs_modules</distro.openmrsmodulesDir>
     <distro.bahmnireportsDir>${distro.baseDir}/bahmni_reports</distro.bahmnireportsDir>
@@ -33,6 +35,7 @@
     <!-- Configs -->
     <openmrsconfigVersion>1.2.0-SNAPSHOT</openmrsconfigVersion>
     <bahmniconfigVersion>1.2.0-SNAPSHOT</bahmniconfigVersion>
+    <odooconfigVersion>1.0.0-SNAPSHOT</odooconfigVersion>
 
     <!-- Bahmni Apps -->
     <bahmniappsRevision>144dfe7</bahmniappsRevision>
@@ -74,12 +77,17 @@
     <uiframeworkVersion>3.8</uiframeworkVersion>
     <uilibraryVersion>2.0.5</uilibraryVersion>
     <webservices.restVersion>2.24.0</webservices.restVersion>
+    <openmrsERPVersion>1.0.0</openmrsERPVersion>
 
     <!-- Bahmni Reports -->
     <bahmniReportsVersion>0.92.1</bahmniReportsVersion>
 
     <!-- OpenERP Atomfeed Service -->
     <openErpAtomfeedServiceVersion>0.93.1</openErpAtomfeedServiceVersion>
+
+    <!-- Odoo addons -->
+    <odooInitializerVersion>1.0.0</odooInitializerVersion>
+    <priceRecalculationVersion>10.0.1.0.0</priceRecalculationVersion>
 
   </properties>
 
@@ -286,6 +294,32 @@
       <artifactId>initializer-omod</artifactId>
       <version>${initializerVersion}</version>
     </dependency>
+
+    <!-- Odoo deps -->
+    <dependency>
+      <groupId>net.mekomsolutions</groupId>
+      <artifactId>odoo-config-haiti</artifactId>
+      <type>zip</type>
+      <version>${odooconfigVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>net.mekomsolutions.odoo</groupId>
+      <artifactId>odoo_initializer</artifactId>
+      <version>${odooInitializerVersion}</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>org.openmrs.module</groupId>
+      <artifactId>erp-omod</artifactId>
+      <version>${openmrsERPVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>net.mekomsolutions.odoo</groupId>
+      <artifactId>sale_order_price_recalculation</artifactId>
+      <version>${priceRecalculationVersion}</version>
+      <type>zip</type>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -395,6 +429,50 @@
               <includeArtifactIds>bahmniapps</includeArtifactIds>
             </configuration>
           </execution>
+          <!-- Odoo config -->
+          <execution>
+            <id>copy-odoo-config-haiti</id>
+            <phase>package</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <excludeTransitive>true</excludeTransitive>
+              <useBaseVersion>true</useBaseVersion>
+              <outputDirectory>${distro.odooconfigDir}</outputDirectory>
+              <includeArtifactIds>odoo-config-haiti</includeArtifactIds>
+            </configuration>
+          </execution>
+          <!-- Odoo addons -->
+          <execution>
+            <id>copy-odoo-addons-haiti</id>
+            <phase>package</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <excludeTransitive>true</excludeTransitive>
+              <useBaseVersion>true</useBaseVersion>
+              <outputDirectory>${distro.odooAddonsDir}</outputDirectory>
+              <!-- copy Odoo addons only -->
+              <includeGroupIds>net.mekomsolutions.odoo</includeGroupIds>
+            </configuration>
+          </execution>
+          <!-- Odoo addons -->
+          <execution>
+            <id>copy-bahmni-distro-haiti</id>
+            <phase>package</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <excludeTransitive>true</excludeTransitive>
+              <useBaseVersion>true</useBaseVersion>
+              <outputDirectory>target/test</outputDirectory>
+              <includeArtifactIds>bahmni-distro-haiti</includeArtifactIds>
+            </configuration>
+          </execution>
+
         </executions>
       </plugin>
 
@@ -424,7 +502,7 @@
               <target>
                 <move todir="${distro.openmrsconfigDir}">
                   <fileset dir="${distro.openmrsconfigDir}"/>
-                  <mapper type="regexp" from="^openmrs-config-hsc(.+)\.zip" to="config.zip"/>
+                  <mapper type="regexp" from="^openmrs-config-haiti(.+)\.zip" to="config.zip"/>
                 </move>
               </target>
             </configuration>
@@ -439,7 +517,7 @@
               <target>
                 <move todir="${distro.bahmniconfigDir}">
                   <fileset dir="${distro.bahmniconfigDir}"/>
-                  <mapper type="regexp" from="^bahmni-config-hsc(.+)\.zip" to="config.zip"/>
+                  <mapper type="regexp" from="^bahmni-config-haiti(.+)\.zip" to="config.zip"/>
                 </move>
               </target>
             </configuration>
