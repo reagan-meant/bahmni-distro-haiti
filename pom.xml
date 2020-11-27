@@ -52,6 +52,7 @@
     <episodesVersion>1.0-SNAPSHOT</episodesVersion>
     <idgenwebservicesVersion>1.3-SNAPSHOT</idgenwebservicesVersion>
     <rulesengineVersion>0.91-SNAPSHOT</rulesengineVersion>
+    <elisatomfeedclientVersion>0.92-SNAPSHOT</elisatomfeedclientVersion>
 
     <!-- OpenMRS modules -->
     <addresshierarchyVersion>2.12.0</addresshierarchyVersion>
@@ -92,6 +93,11 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.bahmni.module</groupId>
+      <artifactId>openelis-atomfeed-client-omod</artifactId>
+      <version>${elisatomfeedclientVersion}</version>
+    </dependency>
     <dependency>
       <groupId>org.bahmni</groupId>
       <artifactId>reports</artifactId>
